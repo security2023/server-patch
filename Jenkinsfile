@@ -3,12 +3,12 @@ pipeline{
     lebel 'ansible-server'
   }
   stages {
-    stages {'deploy patch playbook'}{
+    stage ('deploy patch playbook'){
       steps {
-        dir {'/home/ec2-user/ansible-dev'}{
-          ssh 'ansible-playbook patch.yml'
+         dir('/home/ec2-user/ansible-dev'){
+          sh 'ansible-playbook patch.yml'
         }
       }
     }
   }
-  }
+}
